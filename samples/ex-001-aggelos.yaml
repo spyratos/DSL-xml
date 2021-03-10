@@ -1,0 +1,29 @@
+---
+# version: concept-1
+structure:
+  _value: XML
+  _options:
+    DATA_INDENT: 4
+module: 'Functions::Feed::MyTest'
+type: custom # standard | dynamic | adp | custom
+nesting: Adzuna/jobs/job
+tags:
+  title: title
+  kitsos: description
+  location:
+    country: country
+    city:
+      _cdata: true
+      # _field: city
+      _regex:
+        location: /^.*?,(.*?),/
+  cpc:
+    _function:
+      cpc_calc: [ 5 ]
+  id: id
+filters:
+  include:
+    title: /test/si # it's a domain ad attribute
+  exclude:
+    description: /test/si
+maxads: 4

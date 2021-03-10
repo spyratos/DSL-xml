@@ -1,0 +1,14 @@
+require "$ENV{'HOME'}/.re.pl/repl.rc";
+
+use Adzuna::DSL::PF;
+
+
+my $conf_path = '../samples/ex-001-aggelos.yaml';
+
+my $yaml_obj = Adzuna::DSL::PF->load_yaml($conf_path);
+
+my $pf = Adzuna::DSL::PF->new($yaml_obj); # Partner-feed descriptor
+
+$pf->process_conf;
+
+print $pf->{'ad_xml'};
